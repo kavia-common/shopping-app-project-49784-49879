@@ -63,7 +63,12 @@ fi
 # Initialize PostgreSQL data directory if it doesn't exist
 if [ ! -f "${DATA_DIR}/PG_VERSION" ]; then
     echo "Initializing PostgreSQL data directory at ${DATA_DIR}..."
-    sudo -u postgres pgbin initdb -D "${DATA_DIR}"
+    # Use absolute binary path if available since sudo won't inherit shell functions
+    if [ -n "${PG_BIN}" ] && [ -x "${PG_BIN}/initdb" ]; then
+      sudo -u postgres "${PG_BIN}/initdb" -D "${DATA_DIR}"
+    else
+      sudo -u postgres initdb -D "${DATA_DIR}"
+    fi
 fi
 
 # Ensure postgresql.conf listens on 0.0.0.0 and correct port
