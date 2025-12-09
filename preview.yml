@@ -1,0 +1,10 @@
+# PUBLIC_INTERFACE
+# Preview configuration for ShoppingAppDatabase (non-Docker)
+# Ensures the platform uses preview.sh and validates readiness via healthcheck.sh
+name: ShoppingAppDatabase Preview
+description: Runs PostgreSQL locally using system binaries (no Docker).
+env:
+  PGPORT: "3002"
+scripts:
+  start: bash preview.sh
+  healthcheck: bash ShoppingAppDatabase/healthcheck.sh
