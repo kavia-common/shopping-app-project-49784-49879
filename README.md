@@ -9,6 +9,12 @@ Preview/Startup notes (Non-Docker):
   - Platforms that consume YAML may use: `preview.yml` which points to `bash preview.sh`
   - Procfile-based environments use: `Procfile` with `web: bash preview.sh`
   - preview.json is also provided with `"start": "bash preview.sh"`
+- If your platform uses an external/workspace-level preview config, set it to execute:
+  `bash shopping-app-project-49784-49879/preview.sh`
+
+Initial permissions (if needed):
+- Some preview systems check out files without executable bits. To ensure scripts run:
+  `bash shopping-app-project-49784-49879/ensure_perms.sh`
 
 Health check:
 - Run: `bash ShoppingAppDatabase/healthcheck.sh` (expects PGPORT 3002 by default) or `pg_isready -h 0.0.0.0 -p 3002`
