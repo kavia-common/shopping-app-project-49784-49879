@@ -1,6 +1,7 @@
 # PUBLIC_INTERFACE
 # Preview configuration for ShoppingAppDatabase (non-Docker)
 # Ensures the platform uses preview.sh and validates readiness via healthcheck.sh
+# Binds PostgreSQL to 0.0.0.0 on PGPORT (default 3002) and uses pg_isready for readiness checks.
 name: ShoppingAppDatabase Preview
 description: Runs PostgreSQL locally using system binaries (no Docker).
 env:

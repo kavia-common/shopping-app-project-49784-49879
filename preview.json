@@ -1,6 +1,6 @@
 {
   "name": "ShoppingAppDatabase Preview",
-  "description": "Runs PostgreSQL locally using system binaries (no Docker).",
+  "description": "Runs PostgreSQL locally using system binaries (no Docker). Binds to 0.0.0.0:3002 by default and verifies readiness via pg_isready and healthcheck.sh.",
   "env": {
     "PGPORT": "3002"
   },

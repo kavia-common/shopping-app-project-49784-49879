@@ -23,10 +23,11 @@ elif command -v pg_isready >/dev/null 2>&1; then
 else
   echo "[preview] ERROR: pg_isready not found. Install PostgreSQL client tools."
   echo "[preview] HINT: On Debian/Ubuntu: sudo apt-get update && sudo apt-get install -y postgresql-client"
+  echo "[preview] Current PATH: ${PATH}"
   exit 1
 fi
 
-echo "[preview] Verifying readiness on 0.0.0.0:${PGPORT}..."
+echo "[preview] Verifying readiness on 0.0.0.0:${PGPORT} with ${PG_ISREADY} ..."
 for i in {1..30}; do
   if sudo -u postgres "${PG_ISREADY}" -h 0.0.0.0 -p "${PGPORT}" >/dev/null 2>&1 || \
      "${PG_ISREADY}" -h 0.0.0.0 -p "${PGPORT}" >/dev/null 2>&1; then
