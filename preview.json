@@ -1,0 +1,11 @@
+{
+  "name": "ShoppingAppDatabase Preview",
+  "description": "Runs PostgreSQL locally using system binaries (no Docker).",
+  "env": {
+    "PGPORT": "3002"
+  },
+  "scripts": {
+    "start": "bash preview.sh",
+    "healthcheck": "bash ShoppingAppDatabase/healthcheck.sh"
+  }
+}

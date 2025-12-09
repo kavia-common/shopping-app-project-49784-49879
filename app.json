@@ -1,0 +1,14 @@
+{
+  "name": "ShoppingAppDatabase",
+  "description": "Non-Docker PostgreSQL preview for Shopping App project",
+  "env": {
+    "PGPORT": {
+      "description": "Port for PostgreSQL to listen on",
+      "value": "3002",
+      "required": true
+    }
+  },
+  "scripts": {
+    "postdeploy": "bash ShoppingAppDatabase/healthcheck.sh || true"
+  }
+}
